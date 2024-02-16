@@ -1,0 +1,19 @@
+.inputRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+
+  .select {
+    width: 70px;
+    flex: 0 0 70px;
+    margin-top: 20px;
+    padding-top: 0;
+    background-color: #fff;
+
+    > div {
+      border-left: none !important;
+    }
+  }
+}

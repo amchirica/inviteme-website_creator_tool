@@ -1,0 +1,142 @@
+.selectContainer {
+  width: 100%;
+  user-select: none;
+  padding-top: 20px;
+  --selectHeight: 30px;
+
+  &.open:not(.hasOnlyOneOption) {
+    .overlayContainer {
+      width: 100vw;
+      height: 100vh;
+      visibility: visible;
+    }
+
+    .selectedValue {
+      color: #09d;
+
+      &:after {
+        --color: #09d;
+
+      }
+
+      .selectLabel {
+        color: #0c63e4;
+        bottom: var(--selectHeight);
+        font-size: 12px;
+        height: 15px;
+        line-height: 15px;
+      }
+    }
+  }
+
+  &.hasSelected {
+    .selectedValue {
+      .selectLabel {
+        bottom: var(--selectHeight);
+        font-size: 12px;
+        height: 15px;
+        line-height: 15px;
+      }
+    }
+  }
+
+  &.hasOnlyOneOption {
+    .selectedValue {
+      &:hover {
+        background: #fff;
+      }
+
+      &:after {
+        display: none;
+      }
+
+      .valueText {
+        cursor: default;
+      }
+    }
+  }
+
+  .selectedValue {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    border: 1px solid #ccc;;
+    z-index: 1;
+    background: #fff;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+
+    &:after {
+      content: " ";
+      width: 0;
+      height: 0;
+      --size: 5px;
+      --color: #000;
+      border: var(--size) solid transparent;
+      border-bottom: var(--size) solid var(--color);
+      border-right: var(--size) solid var(--color);
+      right: 10px;
+      top: 7px;
+      position: absolute;
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+
+    .valueText {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: inherit;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding: 0 25px 0 15px;
+      cursor: pointer;
+      display: flex;
+    }
+
+    .selectLabel {
+      position: absolute;
+      bottom: 0;
+      height: var(--selectHeight);
+      line-height: var(--selectHeight);
+      padding-left: 15px;
+      left: 0;
+      font-size: 13px;
+      transition: all 0.2s ease-out;
+      white-space: nowrap;
+      overflow: hidden;
+      color: #000;
+    }
+  }
+
+  .overlayContainer {
+    position: fixed;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    z-index: 1000;
+
+    .selectList {
+      max-height: 250px;
+      overflow: auto;
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .20),
+      0 8px 10px 1px rgba(0, 0, 0, .14),
+      0 3px 14px 2px rgba(0, 0, 0, .12);
+      background-color: #fff;
+      position: absolute;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+
+  select {
+    display: none;
+  }
+}

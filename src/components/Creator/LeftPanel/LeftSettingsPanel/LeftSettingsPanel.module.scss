@@ -1,0 +1,23 @@
+.leftSettingsPanel {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  z-index: 9;
+  flex-direction: column;
+
+  .panelContainer {
+    position: relative;
+    height: calc(100% - 40px);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+      width: calc(100% / 3);
+    }
+  }
+
+}

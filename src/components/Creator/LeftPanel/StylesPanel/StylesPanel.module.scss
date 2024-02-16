@@ -1,0 +1,39 @@
+.stylesFormGroup {
+  display: flex;
+  flex-direction: column;
+
+  .stylesFormRow,
+  .stylesFormColumn {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .stylesFormRow {
+    flex-direction: row;
+  }
+
+  .stylesFormColumn {
+    flex-direction: column;
+  }
+
+  .stylesFormField {
+    width: 100%;
+    padding: 3px;
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    align-items: flex-end;
+
+    select {
+      border: 1px solid #cdcdcd;
+      padding: 3px;
+      height: 30px;
+      font-size: 17px;
+      outline: none;
+      width: 100%;
+    }
+  }
+
+}

@@ -1,0 +1,129 @@
+.singleBlock {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  margin: 10px 0;
+
+  &[style*="align-items: stretch"] {
+    .singleBlock {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &:hover,
+  &.hovered {
+    outline: 2px solid #09c;
+    animation: none !important;
+  }
+
+  &.minimized {
+    //pointer-events: none;
+    filter: none !important;
+    animation: none !important;
+    height: 40px !important;
+    overflow: hidden;
+    border: none !important;
+
+    & > .maskLayer {
+      display: flex;
+    }
+
+    & > :not(.maskLayer) {
+      display: none;
+    }
+  }
+
+  & > p {
+    margin: 0;
+    column-count: inherit;
+    column-width: inherit;
+    column-gap: inherit;
+    column-rule: inherit;
+    column-rule-color: inherit;
+    column-rule-style: inherit;
+    column-rule-width: inherit;
+  }
+
+  [contenteditable] {
+    outline: none;
+  }
+
+  & > button {
+    width: 100%;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  & > hr {
+    margin: 0;
+    height: inherit;
+    width: 100%;
+  }
+
+  &:has(hr) {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .maskLayer {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    background: #dee2e6;
+    text-align: center;
+    line-height: 15px;
+    font-size: 13px;
+  }
+
+  p, q, button, h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    width: 100%;
+  }
+
+  .children {
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    flex-direction: inherit;
+    flex-wrap: inherit;
+    padding: 5px;
+  }
+}
+
+.children {
+  width: 100%;
+  display: table;
+  min-height: 50px;
+  padding: 0 5px 50px 5px;
+  height: 100%;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: fill-available;
+
+  &.dragover {
+    background: rgba(59, 185, 86, 0.49);
+
+    &:has(.dragover) {
+      background: transparent;
+    }
+
+    > div, .children > div {
+      outline: 1px solid #09c;
+    }
+  }
+
+  > div {
+    margin: 10px 0;
+
+    > .singleBlock {
+      margin: 0;
+    }
+  }
+}
